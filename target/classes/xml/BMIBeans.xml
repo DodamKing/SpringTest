@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="BMIVO" class="com.spring.springTest.t1214.test5.BMIVO" >
+		<property name="normal" value="18.5" />
+		<property name="overWeight" value="23" />
+		<property name="obesity" value="25" />
+	</bean>
+
+	<bean id="vo1" class="com.spring.springTest.t1214.test5.UserVO" >
+		<property name="name" value="홍길동" />
+		<property name="height" value="170.5" />
+		<property name="weight" value="69.5" />
+		<property name="bmivo">
+			<ref bean="BMIVO" />			
+		</property>	
+	</bean>
+	
+	<bean id="vo2" class="com.spring.springTest.t1214.test5.UserVO" >
+		<property name="name" value="김말숙" />
+		<property name="height" value="162.1" />
+		<property name="weight" value="48.9" />
+		<property name="bmivo">
+			<ref bean="BMIVO" />			
+		</property>	
+	</bean>
+	
+	<bean id="vo3" class="com.spring.springTest.t1214.test5.UserVO" >
+		<property name="name" value="오나라" />
+		<property name="height" value="173.5" />
+		<property name="weight" value="80.2" />
+		<property name="bmivo">
+			<ref bean="BMIVO" />			
+		</property>	
+	</bean>
+	
+</beans>
