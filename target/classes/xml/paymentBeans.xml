@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="vo1" class="com.spring.springTest.homeWork.payment.PaymentVO" >
+		<property name="name" value="홍길동" />
+		<property name="position" value="1" />
+		<property name="officeHours" value="9" />
+	</bean>
+	
+	<bean id="vo2" class="com.spring.springTest.homeWork.payment.PaymentVO" >
+		<property name="name" value="김말숙" />
+		<property name="position" value="2" />
+		<property name="officeHours" value="14" />
+	</bean>
+	
+	<bean id="vo3" class="com.spring.springTest.homeWork.payment.PaymentVO" >
+		<property name="name" value="이기자" />
+		<property name="position" value="3" />
+		<property name="officeHours" value="7" />
+	</bean>
+	
+	<bean id="pay1" class="com.spring.springTest.homeWork.payment.PaymentDo" >
+		<property name="vo">
+			<ref bean="vo1" />
+		</property>
+	</bean>
+	
+	<bean id="pay2" class="com.spring.springTest.homeWork.payment.PaymentDo" >
+		<property name="vo">
+			<ref bean="vo2" />
+		</property>
+	</bean>
+	
+	<bean id="pay3" class="com.spring.springTest.homeWork.payment.PaymentDo" >
+		<property name="vo">
+			<ref bean="vo3" />
+		</property>
+	</bean>
+
+</beans>
