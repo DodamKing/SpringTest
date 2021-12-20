@@ -12,5 +12,6 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
+<a href="${ctp }/tiles/login">로그인 하러 가기</a>
 </body>
 </html>

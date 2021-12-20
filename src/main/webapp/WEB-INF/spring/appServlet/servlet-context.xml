@@ -20,15 +20,53 @@
 	<resources mapping="/board/**" location="/resources/data/board/" />
 	<resources mapping="/member/**" location="/resources/data/member/" />
 	<resources mapping="/pds/**" location="/resources/data/pds/" />
+	<resources mapping="/include/**" location="/resources/include/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
+		<beans:property name="order" value="2" />
 	</beans:bean>
 	
 	<context:component-scan base-package="com.spring.springTest" />
 	
+	<!-- tiles 설정 -->
+	<beans:bean id="tilesViewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
+		<beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
+		<beans:property name="order" value="1" />
+	</beans:bean>
 	
+	<beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<beans:property name="definitions" >
+			<beans:list>
+				<beans:value>/WEB-INF/spring/appServlet/tiles-def.xml</beans:value>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	
+	<!-- intercepter 설정 -->
+	<beans:bean id="testinterceptor" class="com.spring.springTest.interceptor.Testinterceptor" />
+	<beans:bean id="guestinterceptor" class="com.spring.springTest.interceptor.Guestinterceptor" />
+	<beans:bean id="boardinterceptor" class="com.spring.springTest.interceptor.Boardinterceptor" />
+	<beans:bean id="pdsinterceptor" class="com.spring.springTest.interceptor.Pdsinterceptor" />
+	<interceptors>
+		<interceptor>
+			<mapping path="/"/>
+			<beans:ref bean="testinterceptor"/>
+		</interceptor>
+		<interceptor>
+			<mapping path="/tiles/guest/**"/>
+			<beans:ref bean="guestinterceptor"/>
+		</interceptor>
+		<interceptor>
+			<mapping path="/tiles/board/**"/>
+			<beans:ref bean="boardinterceptor"/>
+		</interceptor>
+		<interceptor>
+			<mapping path="/tiles/pds/**"/>
+			<beans:ref bean="pdsinterceptor"/>
+		</interceptor>
+	</interceptors>
 	
 </beans:beans>

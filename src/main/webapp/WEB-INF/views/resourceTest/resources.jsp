@@ -10,8 +10,8 @@
 </head>
 <body>
 	<h2>리소스 연습(리소스방)</h2>
-	기본. : <img src="${ctp }/resources/img/dog10.jpg" width="200px" > <br>
-	기본. : <img src="${ctp }/resources/img/dog1.jpg" width="200px" > <br>
+	기본. : <img src="img/dog10.jpg" width="200px" > <br>
+	기본. : <img src="${ctp }/img/dog1.jpg" width="200px" > <br>
 	이미지방. : <img src="${ctp }/img/dog2.jpg" width="200px" > <br>
 	보드빙. : <img src="${ctp }/board/dog8.jpg" width="200px" > <br>
 	멤버방. : <img src="${ctp }/member/dog6.jpg" width="200px" > <br>
